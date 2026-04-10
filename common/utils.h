@@ -1,5 +1,7 @@
 #pragma once
 
+#include <fstream>
+
 #include "type.h"
 
 using namespace std;
@@ -42,4 +44,47 @@ unsLL digitSum(unsLL number) {
 
     return sum;
 }
+
+inline int lengthD(const double number) {
+	if (number == 0) return 1;
+	return floor(log10(std::abs(number))) + 1;
+}
+
+inline int length(const LL number) {
+	if (number == 0) return 1;
+	return floor(log10(std::abs(number))) + 1;
+}
+
+vector<int>* extractdigits(unsLL number) {
+	const int len = length(number);
+	auto digits = new vector<int>(len);
+
+	for (int i = 0; i < len; i++) {
+		(*digits)[i] = number % 10;
+		number /= 10;
+	}
+
+	return digits;
+}
+
+vector<string>* readFile(const string& fileName) {
+	ifstream file(fileName);
+
+	if (!file.is_open()) {
+		std::cerr << "Error: Could not open the file: " << fileName << std::endl;
+		return nullptr;
+	}
+
+	vector<string>* lines = new vector<string>();
+	std::string line;
+
+	while (std::getline(file, line)) {
+		lines->push_back(line);
+	}
+
+	file.close();
+	return lines;
+}
+
+
 

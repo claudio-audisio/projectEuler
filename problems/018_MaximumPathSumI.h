@@ -41,5 +41,4 @@ void maximumPathSumI() {
     }
 
     cout << "result: " << sum[0] << endl;
-
 }

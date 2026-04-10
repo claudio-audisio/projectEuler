@@ -24,6 +24,16 @@
 #include "problems/019_CountingSundays.h"
 #include "problems/021_AmicableNumbers.h"
 #include "problems/024_LexicographicPermutations.h"
+#include "problems/025_1000-digitfibonacciNumber.h"
+#include "problems/027_QuadraticPrimes.h"
+#include "problems/031_CoinSums.h"
+#include "problems/032_PandigitalProducts.h"
+#include "problems/034_DigitFactorials.h"
+#include "problems/044_PentagonNumbers.h"
+#include "problems/050_ConsecutivePrimeSum.h"
+#include "problems/063_PowerfulDigitCounts.h"
+#include "problems/067_MaximumPathSumII.h"
+#include "problems/991_FruitSalad.h"
 
 using namespace std;
 
@@ -50,8 +60,18 @@ int menu()
 	cout << " 19.\tCounting Sundays" << endl;
 	cout << " 21.\tAmicable Numbers" << endl;
 	cout << " 24.\tLexicographic Permutations" << endl;
+	cout << " 25.\t1000-digit Fibonacci Number" << endl;
+	cout << " 27.\tQuadratic Primes" << endl;
+	cout << " 31.\tCoin Sums" << endl;
+	cout << " 32.\tPandigital Products" << endl;
+	cout << " 34.\tDigit Factorials" << endl;
+	cout << " 44.\tPentagon Numbers" << endl;
+	cout << " 50.\tConsecutive Prime Sum" << endl;
+	cout << " 63.\tPowerful Digit Counts" << endl;
+	cout << " 67.\tMaximum Path Sum II" << endl;
 	cout << " 69.\tTotient maximum" << endl;
 	cout << "788.\tDominating Numbers" << endl;
+	cout << "991.\tFruit Salad" << endl;
 	cout << " -1.\tExit" << endl;
 	
 	cout << "\nSelect a problem to solve: ";
@@ -66,33 +86,41 @@ void solveProblem(const int problem)
 {
 	const auto time = chrono::steady_clock::now();
 
-	switch (problem)
-	{
-		case 0:		sievePrimes(10*1000*1000); break;
-		case 1:		multipleOf3And5(); break;
-		case 2:		evenFibonacciNumbers(4*1000*1000); break;
-		case 3:		largestPrimeFactor(600851475143); break;
-		case 4:		largestPalindromeProduct(); break;
-		case 5:		smallestMultiple(20); break;
-		case 6:		sumSquareDifference(100); break;
-		case 7:		nThPrimes(10001); break;
-		case 8:		largestProductInASeries(13); break;
-		case 9:		specialPythagoreanTriplet(1000); break;
-		case 10:	summationOfPrimes(2*1000*1000); break;
-		case 11:	largestProductInAGrid(); break;
-		case 12:	highlyDivisibleTriangularNumber(); break;
-		case 13:	largeSum(); break;
-		case 14:	longestCollatzSequence(10*1000*1000); break;
-		case 15:	latticePaths(); break;
-		case 18:	maximumPathSumI(); break;
-		case 19:	countingSundays(); break;
-		case 21:	amicableNumbers(10 * 1000); break;
-		case 24:	lexicographicPermutations(1000 * 1000); break;
-		case 69:	totientMaximum(1000000); break;
-		case 788:	dominatingNumbers(); break;
-		case -1:	exit(0);
-		default: cout << "Problem " << problem << " not found" << endl;
-			break;
+	switch (problem) {
+	case 0:		sievePrimes(10*1000*1000); break;
+	case 1:		multipleOf3And5(); break;
+	case 2:		evenFibonacciNumbers(4*1000*1000); break;
+	case 3:		largestPrimeFactor(600851475143); break;
+	case 4:		largestPalindromeProduct(); break;
+	case 5:		smallestMultiple(20); break;
+	case 6:		sumSquareDifference(100); break;
+	case 7:		nThPrimes(10001); break;
+	case 8:		largestProductInASeries(13); break;
+	case 9:		specialPythagoreanTriplet(1000); break;
+	case 10:	summationOfPrimes(2*1000*1000); break;
+	case 11:	largestProductInAGrid(); break;
+	case 12:	highlyDivisibleTriangularNumber(); break;
+	case 13:	largeSum(); break;
+	case 14:	longestCollatzSequence(10*1000*1000); break;
+	case 15:	latticePaths(); break;
+	case 18:	maximumPathSumI(); break;
+	case 19:	countingSundays(); break;
+	case 21:	amicableNumbers(10 * 1000); break;
+	case 24:	lexicographicPermutations(1000 * 1000); break;
+	case 25:	nDigitFibonacciNumber(1000); break;
+	case 27:	quadraticPrimes(); break;
+	case 31:	coinSums(200); break;
+	case 32:	pandigitalProducts(); break;
+	case 34:	digitFactorials(); break;
+	case 44:	pentagonNumbers(); break;
+	case 50:	consecutivePrimeSum(1000000); break;
+	case 63:	powerfulDigitCounts(); break;
+	case 67:	maximumPathSumII(); break;
+	case 69:	totientMaximum(1000000); break;
+	case 788:	dominatingNumbers(); break;		// TODO
+	case 991:	fruitSalad(1000); break;	// TODO
+	case -1:	exit(0);
+	default: cout << "Problem " << problem << " not found" << endl; break;
 	}
 
 	std::cout << "time: " << getElapsedMillis(time) << " ms " << std::endl;

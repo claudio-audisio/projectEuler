@@ -7,9 +7,13 @@
 
 using namespace std;
 
-set<LL> primes;
+set<unsLL> primes;
 
-bool isPrime(LL n, bool usePreviousPrimes = false) {
+bool isPrime(const LL n, const bool usePreviousPrimes = false) {
+	if (n <= 1) {
+		return false;
+	}
+
 	if (primes.find(n) != primes.end()) {
 		return true;
 	}
@@ -23,10 +27,10 @@ bool isPrime(LL n, bool usePreviousPrimes = false) {
 		return false;
 	}
 
-	LL limit = sqrt(double(n));
+	const unsLL limit = sqrt(double(n));
 
 	if (usePreviousPrimes) {
-		set<LL>::const_iterator itP = primes.begin();
+		set<unsLL>::const_iterator itP = primes.begin();
 
 		while (itP != primes.end()) {
 			if (n % (*itP) == 0) {
@@ -103,7 +107,7 @@ std::vector<int> sievePrimes(const int n) {
 		if (is_prime[i])
 			primes.push_back(i);
 
-	cout << primes.size() << endl;
+	//cout << primes.size() << endl;
 
 	return primes;
 }

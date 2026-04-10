@@ -8,7 +8,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	//test();
+	test();
+	//return 0;
 
 	int selection = 0;
 
